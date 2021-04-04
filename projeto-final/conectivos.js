@@ -29,36 +29,37 @@ logic_form.addEventListener("submit", function (e){
 
   //escreva o código para avaliar a proposição e obter o resultado
   let logicArray = input.split(' '); 
+  let result = '';
 
     if(logicArray[0] == 'NOT'){
       if(logicArray[1] == 'F'){
-        return 'V';
+        result ='V';
       } else {
-        return 'F';
+        result = 'F';
       } 
 
     }else if(logicArray[1] == 'AND'){
       if(logicArray[0] != logicArray[2]){
-        return 'F';
+        result = 'F';
       } else if(logicArray[0] == logicArray[2]){
         if(logicArray[0] == 'V'){
-          return 'V';
+          result = 'V';
         } else if(logicArray[0] == 'F'){
-          return 'F';
+          result = 'F';
         }
       }
     } else if(logicArray[1] == 'OR'){
       if(logicArray[0] != logicArray[2]){
-         return 'V';
+         result = 'V';
       } else if(logicArray[0] == logicArray[2]){
         if(logicArray[0] == 'V'){
-          return 'V';
+          result = 'V';
         } else if(logicArray[0] == 'F'){
-          return 'F';
+          result = 'F';
         }
       }
     }
     
   //atribua o resultado ao elemento "logic-result"
-  res.innerHTML = input;
+  res.innerHTML = result;
 })
